@@ -1,0 +1,142 @@
+.header {
+  height: 96px;
+  padding: 0 var(--pad);
+  display: flex; align-items: center; justify-content: space-between; gap: 20px;
+}
+.overlay { position: absolute; left: 0; top: 0; width: 100%; z-index: 7; }
+.solid { position: relative; background: var(--forest); }
+
+.logo {
+  display: flex; align-items: center; gap: 10px;
+  text-decoration: none; color: var(--cream); flex-shrink: 0;
+}
+.logo:hover { color: var(--cream); }
+
+.nav { display: flex; align-items: center; gap: 30px; }
+.navLink {
+  color: #fff; text-decoration: none;
+  font-size: 14px; font-weight: 600; letter-spacing: .12em; text-transform: uppercase;
+  padding: 8px 0; border-bottom: 2px solid transparent;
+  transition: border-color .2s;
+}
+.navLink:hover { color: #fff; border-bottom-color: rgba(255, 255, 255, .6); }
+.navLink.isOn { border-bottom-color: var(--amber); }
+
+.tools { display: flex; align-items: center; gap: 10px; }
+
+/* Buscador */
+.searchWrap { position: relative; }
+.search {
+  display: flex; align-items: center; gap: 8px;
+  width: 176px; height: 44px; padding: 0 16px;
+  border-radius: 999px; border: 1px solid rgba(255, 255, 255, .32);
+  background: rgba(255, 255, 255, .12); color: #fff;
+}
+.solid .search { background: rgba(255, 255, 255, .1); border-color: rgba(255, 255, 255, .3); }
+.search :global(.tt-ico) { width: 18px; height: 18px; }
+.search input {
+  width: 100%; background: transparent; border: 0; outline: none; color: #fff;
+  font-size: 14px; font-weight: 500;
+}
+.search input::placeholder { color: rgba(255, 255, 255, .8); }
+.search input::-webkit-search-cancel-button { filter: invert(1); }
+.search:focus-within { border-color: var(--amber); }
+
+.results {
+  position: absolute; top: calc(100% + 8px); left: 0; z-index: 20;
+  width: 280px; padding: 8px;
+  border-radius: 20px; background: var(--paper);
+  box-shadow: 0 18px 40px rgba(20, 16, 10, .28);
+  display: flex; flex-direction: column;
+  animation: pop .18s var(--ease-out) both;
+}
+@keyframes pop { from { opacity: 0; transform: translateY(-6px); } to { opacity: 1; transform: none; } }
+.result {
+  min-height: 44px; padding: 0 12px; border-radius: 12px;
+  display: flex; align-items: center; justify-content: space-between; gap: 10px;
+  color: var(--ink); text-decoration: none; font-size: 15px; font-weight: 600;
+}
+.result:hover, .result:focus-visible { background: var(--sand-3); color: var(--ink); }
+.result :global(.tt-ico) { width: 16px; height: 16px; color: var(--terra-text); }
+.noResult { margin: 0; padding: 12px; font-size: 14px; color: var(--muted); }
+
+/* Idioma */
+.lang {
+  display: flex; align-items: center; height: 44px; padding: 4px; gap: 2px;
+  border-radius: 999px; border: 1px solid rgba(255, 255, 255, .5); background: rgba(255, 255, 255, .12);
+}
+.lang a, .lang span {
+  height: 34px; min-width: 40px; padding: 0 10px; border-radius: 999px;
+  display: flex; align-items: center; justify-content: center;
+  color: #fff; font-size: 13px; font-weight: 700; letter-spacing: .06em; text-decoration: none;
+}
+.lang a:hover { background: rgba(255, 255, 255, .2); color: #fff; }
+.lang .isOn { background: #fff; color: var(--ink); }
+
+.book { height: 44px; padding: 0 20px; }
+
+.iconBtn {
+  width: 44px; height: 44px; border-radius: 50%;
+  border: 1px solid rgba(255, 255, 255, .45); background: rgba(255, 255, 255, .08); color: #fff;
+  display: inline-flex; align-items: center; justify-content: center;
+  cursor: pointer; text-decoration: none; flex-shrink: 0;
+  -webkit-tap-highlight-color: transparent;
+}
+.iconBtn:hover { color: #fff; background: rgba(255, 255, 255, .2); }
+.langBtn { width: auto; min-width: 44px; padding: 0 13px; font-size: 13px; font-weight: 700; letter-spacing: .06em; }
+
+/* Por defecto (escritorio grande) se ocultan los controles compactos */
+.langBtn, .searchBtn, .menuBtn { display: none; }
+
+@media (max-width: 1279px) {
+  .nav, .searchDesk, .socialsDesk, .lang { display: none; }
+  .langBtn, .searchBtn, .menuBtn { display: inline-flex; }
+  .tools { gap: 8px; }
+}
+@media (max-width: 767px) {
+  .header { height: 76px; }
+  .logo { gap: 8px; }
+  .logo svg { width: 36px; height: 36px; }
+  .logo :global(.tt-d) { font-size: 23px !important; }
+  .book { display: none; }
+}
+
+/* Paneles a pantalla completa (menú y búsqueda en móvil) */
+.overlayPanel {
+  position: fixed; inset: 0; z-index: 60;
+  background: var(--forest-dk); color: var(--cream);
+  display: flex; flex-direction: column;
+  padding: 16px var(--pad) calc(24px + env(safe-area-inset-bottom));
+  animation: sheetIn .32s var(--ease-out) both;
+  overscroll-behavior: contain;
+}
+@keyframes sheetIn { from { opacity: 0; transform: translateY(-12px); } to { opacity: 1; transform: none; } }
+.overlayTop { display: flex; align-items: center; justify-content: space-between; gap: 12px; min-height: 60px; }
+.searchBig { flex: 1; width: auto; height: 52px; }
+.searchBig input { font-size: 16px; }
+.overlayList { margin-top: 24px; display: flex; flex-direction: column; overflow-y: auto; }
+.overlayResult {
+  min-height: 60px; display: flex; align-items: center; justify-content: space-between; gap: 12px;
+  border-bottom: 1px solid rgba(246, 239, 227, .16);
+  color: var(--cream); text-decoration: none;
+}
+.overlayResult span { font-size: 28px; font-weight: 700; line-height: 1; }
+.overlayResult :global(.tt-ico) { color: var(--amber); }
+.overlayResult:hover { color: var(--amber); }
+.noResultDark { margin: 12px 0; color: rgba(246, 239, 227, .8); }
+
+.menuLinks { margin-top: 32px; display: flex; flex-direction: column; }
+.menuLink {
+  min-height: 64px; display: flex; align-items: center;
+  font-size: 44px; font-weight: 700; line-height: 1;
+  color: var(--cream); text-decoration: none;
+  border-bottom: 1px solid rgba(246, 239, 227, .12);
+  animation: linkIn .45s var(--ease-out) both;
+}
+.menuLink:hover, .menuLink.isOn { color: var(--amber); }
+@keyframes linkIn { from { opacity: 0; transform: translateY(14px); } to { opacity: 1; transform: none; } }
+.menuFoot { margin-top: auto; display: flex; flex-direction: column; gap: 18px; padding-top: 24px; }
+
+@media (prefers-reduced-motion: reduce) {
+  .overlayPanel, .menuLink, .results { animation: none; }
+}

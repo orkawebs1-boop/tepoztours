@@ -1,0 +1,40 @@
+.page { display: flex; flex-direction: column; gap: 20px; }
+.head { display: flex; justify-content: space-between; align-items: flex-end; gap: 24px; flex-wrap: wrap; }
+.head h2 { margin: 0; font-size: 44px; line-height: 1; font-weight: 700; color: var(--ink); }
+.head p { margin: 6px 0 0; font-size: 15px; color: var(--muted); }
+
+.bulk { padding: 10px 10px 10px 18px; border-radius: 999px; display: flex; align-items: center; gap: 10px; }
+.bulkLabel { font-size: 14px; font-weight: 700; }
+.step {
+  width: 40px; height: 40px; border-radius: 50%; border: 1.5px solid var(--line-2); background: #fff; color: var(--ink);
+  cursor: pointer; display: flex; align-items: center; justify-content: center;
+}
+.step:hover { border-color: var(--forest); }
+.step :global(.tt-ico) { width: 16px; height: 16px; }
+.pct { min-width: 58px; text-align: center; font-size: 24px; font-weight: 700; }
+
+.card { padding: 18px 12px 6px; }
+.isChanged td { background: #fbf3e4; }
+.isBad td { background: #fdf0eb; }
+.tourCell { display: flex; align-items: center; gap: 12px; }
+.thumb { width: 56px; height: 42px; border-radius: 10px; flex-shrink: 0; }
+.name { font-family: var(--font-display); font-size: 20px; font-weight: 700; text-transform: uppercase; line-height: 1; }
+.cur { font-family: var(--font-display); font-size: 22px; font-weight: 700; color: var(--muted); }
+.input {
+  display: flex; align-items: center; gap: 6px; width: 170px; height: 46px; padding: 0 12px;
+  border-radius: 12px; border: 1.5px solid var(--line-2); background: #fff;
+}
+.input:focus-within { border-color: var(--forest); box-shadow: 0 0 0 3px rgba(31, 58, 46, .14); }
+.inBad { border-color: var(--danger); }
+.input input { width: 100%; min-width: 0; border: 0; outline: none; background: transparent; font-family: var(--font-display); font-size: 22px; font-weight: 700; color: var(--ink); }
+.input span { font-family: var(--font-display); font-size: 22px; font-weight: 700; color: var(--muted-2); }
+.diff { display: inline-flex; align-items: center; gap: 6px; font-size: 14px; font-weight: 700; white-space: nowrap; }
+.up { color: var(--ok-fg); }
+.down { color: var(--err-fg); }
+.same { color: var(--muted-2); font-weight: 600; }
+.err { display: block; font-size: 12px; font-weight: 700; color: var(--err-fg); margin-top: 4px; }
+
+@media (max-width: 640px) {
+  .bulk { border-radius: 22px; flex-wrap: wrap; }
+  .head h2 { font-size: 36px; }
+}

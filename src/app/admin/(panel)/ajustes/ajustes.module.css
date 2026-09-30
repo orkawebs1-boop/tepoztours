@@ -1,0 +1,52 @@
+.grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 20px; align-items: start; }
+.col { display: flex; flex-direction: column; gap: 20px; min-width: 0; }
+.card { padding: 24px 26px; display: flex; flex-direction: column; gap: 16px; }
+.h { margin: 0; font-family: var(--font-display); text-transform: uppercase; font-size: 26px; line-height: 1; font-weight: 700; color: var(--forest); }
+.sub { margin: -8px 0 0; font-size: 13px; color: var(--muted); }
+.g2 { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 14px; }
+
+.pre { display: flex; align-items: center; height: 46px; border-radius: 12px; border: 1.5px solid var(--line-2); background: #fff; overflow: hidden; }
+.pre:focus-within { border-color: var(--forest); box-shadow: 0 0 0 3px rgba(31, 58, 46, .14); }
+.pre > span { height: 100%; padding: 0 12px; display: flex; align-items: center; gap: 8px; background: var(--icon-bg); font-size: 13.5px; font-weight: 700; color: var(--ink-2); white-space: nowrap; }
+.pre input { flex-grow: 1; min-width: 0; height: 100%; border: 0; outline: none; padding: 0 12px; font-size: 14.5px; font-weight: 500; color: var(--ink); background: transparent; }
+.bad { border-color: var(--danger); }
+
+.waRow { display: flex; align-items: center; gap: 12px; padding: 12px 14px; border-radius: 14px; background: var(--icon-bg); flex-wrap: wrap; }
+.waUrl { flex: 1 1 200px; min-width: 0; font-size: 13px; color: var(--ink-2); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+
+.logo { height: 132px; border-radius: 16px; display: flex; align-items: center; justify-content: center; gap: 10px; padding: 12px; }
+.logoImg { max-height: 72px; max-width: 100%; width: auto; object-fit: contain; }
+.logoRow { display: flex; align-items: center; justify-content: space-between; gap: 12px; flex-wrap: wrap; }
+.fav { display: flex; align-items: center; gap: 12px; }
+.favIco { width: 44px; height: 44px; border-radius: 12px; display: flex; align-items: center; justify-content: center; }
+.favTxt { display: flex; flex-direction: column; }
+.favTxt strong { font-size: 14px; }
+.favTxt span { font-size: 12.5px; color: var(--muted); }
+
+.colors { display: grid; grid-template-columns: minmax(0, 1fr) 200px; gap: 20px; }
+.colorList { display: flex; flex-direction: column; gap: 10px; }
+.color { display: grid; grid-template-columns: 44px minmax(0, 1fr) 96px; align-items: center; gap: 12px; cursor: pointer; }
+.color input[type="color"] { width: 44px; height: 44px; padding: 0; border: 1.5px solid var(--line-2); border-radius: 12px; background: #fff; cursor: pointer; }
+.color input[type="color"]::-webkit-color-swatch-wrapper { padding: 3px; }
+.color input[type="color"]::-webkit-color-swatch { border: 0; border-radius: 8px; }
+.colorTxt { display: flex; flex-direction: column; }
+.colorTxt strong { font-size: 14px; }
+.colorTxt span { font-size: 12px; color: var(--muted); }
+.hex { height: 40px; border-radius: 10px; border: 1.5px solid var(--line-2); background: #fff; padding: 0 10px; font-size: 13px; font-weight: 700; font-family: ui-monospace, "SFMono-Regular", Menlo, monospace; color: var(--ink); display: flex; align-items: center; }
+.pv { border-radius: 18px; padding: 16px; border: 1px solid var(--line); display: flex; flex-direction: column; gap: 10px; }
+.pvK { font-size: 10.5px; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; color: var(--muted-2); }
+.pvTag { align-self: flex-start; padding: 5px 10px; border-radius: 999px; color: #fff; font-size: 11px; font-weight: 700; }
+.pvBox { height: 70px; border-radius: 12px; }
+.pvBtn { height: 38px; border-radius: 999px; color: var(--ink); font-size: 13px; font-weight: 700; display: flex; align-items: center; justify-content: center; }
+
+.socRow { display: flex; justify-content: space-between; align-items: center; gap: 12px; padding-top: 14px; border-top: 1px solid #ede3d2; font-size: 14px; font-weight: 600; }
+.saveAll { align-self: flex-end; height: 50px; padding: 0 26px; font-size: 15px; }
+
+@media (max-width: 1280px) {
+  .grid { grid-template-columns: minmax(0, 1fr); }
+}
+@media (max-width: 640px) {
+  .g2, .colors { grid-template-columns: minmax(0, 1fr); }
+  .color { grid-template-columns: 44px minmax(0, 1fr); }
+  .hex { display: none; }
+}

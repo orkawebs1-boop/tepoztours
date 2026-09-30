@@ -1,0 +1,47 @@
+.footer { padding-top: 64px; background: var(--forest-dk); color: var(--cream); }
+.grid { display: grid; grid-template-columns: 380px repeat(3, minmax(0, 1fr)); gap: 56px; padding-bottom: 56px; }
+.brand { display: flex; flex-direction: column; gap: 20px; }
+.logo { display: flex; align-items: center; gap: 10px; text-decoration: none; color: var(--cream); align-self: flex-start; }
+.logo:hover { color: var(--cream); }
+.blurb { margin: 0; font-size: 15px; line-height: 1.6; color: rgba(246, 239, 227, .8); }
+.cta { align-self: flex-start; }
+.fh { margin: 0 0 20px; font-size: 13px; font-weight: 700; letter-spacing: .16em; text-transform: uppercase; color: var(--amber); }
+.links { display: flex; flex-direction: column; gap: 10px; }
+.link { color: rgba(246, 239, 227, .8); text-decoration: none; font-size: 15px; }
+.link:hover { color: var(--amber); }
+.contact { margin: 22px 0 0; font-size: 15px; line-height: 1.7; color: rgba(246, 239, 227, .8); }
+.bottom {
+  min-height: 76px; border-top: 1px solid rgba(246, 239, 227, .16);
+  display: flex; align-items: center; justify-content: space-between; gap: 16px;
+  font-size: 14px; color: rgba(246, 239, 227, .72);
+}
+.bottom .link { font-size: 14px; }
+
+.compact { padding-top: 0; }
+.compactTop { min-height: 124px; display: flex; justify-content: space-between; align-items: center; gap: 24px; }
+.compactTop .logo { align-self: center; }
+.compactNav { display: flex; gap: 32px; flex-wrap: wrap; }
+.compact .bottom { min-height: 96px; }
+
+@media (max-width: 1279px) {
+  .grid { grid-template-columns: 300px repeat(3, minmax(0, 1fr)); gap: 32px; }
+}
+@media (max-width: 1023px) {
+  .grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+@media (max-width: 767px) {
+  .footer { padding-top: 40px; }
+  .grid { grid-template-columns: minmax(0, 1fr); gap: 28px; padding-bottom: 32px; }
+  .brand { gap: 18px; }
+  .logo svg { width: 36px; height: 36px; }
+  .logo :global(.tt-d) { font-size: 23px !important; }
+  .blurb { font-size: 14.5px; }
+  .cta { width: 100%; }
+  .links { flex-direction: row; flex-wrap: wrap; gap: 10px 18px; }
+  .fh { margin-bottom: 14px; }
+  .bottom { min-height: 64px; font-size: 13px; padding-bottom: calc(env(safe-area-inset-bottom) + 84px); padding-top: 16px; align-items: flex-start; }
+  .compactTop { flex-direction: column; align-items: flex-start; padding: 32px 0 20px; min-height: 0; }
+  .compactTop .logo { align-self: flex-start; }
+  .compactNav { gap: 12px 20px; }
+  .compact .bottom { min-height: 0; padding-bottom: calc(env(safe-area-inset-bottom) + 108px); }
+}

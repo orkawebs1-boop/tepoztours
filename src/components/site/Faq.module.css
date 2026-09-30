@@ -1,0 +1,50 @@
+.section { padding-top: 88px; padding-bottom: 88px; background: var(--cream); }
+.layout { display: grid; grid-template-columns: 440px minmax(0, 1fr); gap: 96px; }
+.side { display: flex; flex-direction: column; gap: 22px; }
+.title { margin: 0; font-size: clamp(64px, 6.7vw, 96px); line-height: .88; font-weight: 700; color: var(--forest); }
+.intro { margin: 0; font-size: 17px; line-height: 1.6; color: var(--muted); }
+.ask { align-self: flex-start; margin-top: 8px; }
+
+.list { display: flex; flex-direction: column; border-top: 1px solid var(--line-2); }
+.item { border-bottom: 1px solid var(--line-2); }
+.h { margin: 0; font: inherit; }
+.q {
+  width: 100%; min-height: 78px;
+  display: flex; align-items: center; justify-content: space-between; gap: 24px;
+  background: transparent; border: 0; padding: 0; cursor: pointer; text-align: left;
+  font-size: 20px; font-weight: 600; color: var(--ink);
+  -webkit-tap-highlight-color: transparent;
+}
+.chev {
+  width: 40px; height: 40px; border-radius: 50%; flex-shrink: 0;
+  border: 1.5px solid var(--forest); color: var(--forest);
+  display: flex; align-items: center; justify-content: center;
+  transition: transform .3s, background-color .3s, color .3s;
+}
+.isOpen .chev { transform: rotate(180deg); background: var(--forest); color: var(--cream); }
+.a {
+  margin: 0; padding: 0 72px 26px 0;
+  font-size: 16px; line-height: 1.65; color: var(--muted);
+  animation: fadeA .4s var(--ease-out) both;
+}
+@keyframes fadeA { from { opacity: 0; transform: translateY(12px); } to { opacity: 1; transform: none; } }
+
+@media (max-width: 1279px) {
+  .layout { grid-template-columns: 360px minmax(0, 1fr); gap: 56px; }
+}
+@media (max-width: 1023px) {
+  .layout { grid-template-columns: minmax(0, 1fr); gap: 32px; }
+}
+@media (max-width: 767px) {
+  .section { padding-top: 56px; padding-bottom: 56px; }
+  .side { gap: 16px; }
+  .title { font-size: 64px; }
+  .intro { font-size: 15px; }
+  .q { min-height: 66px; padding: 10px 0; gap: 16px; font-size: 16.5px; }
+  .chev { width: 34px; height: 34px; }
+  .chev :global(.tt-ico) { width: 18px; height: 18px; }
+  .a { padding: 0 8px 20px 0; font-size: 15px; line-height: 1.6; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .a { animation: none; }
+}

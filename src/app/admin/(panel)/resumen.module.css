@@ -1,0 +1,61 @@
+.page { display: flex; flex-direction: column; gap: 24px; }
+.head { display: flex; justify-content: space-between; align-items: flex-end; gap: 16px; flex-wrap: wrap; }
+.head h2 { margin: 0; font-size: 44px; line-height: 1; font-weight: 700; color: var(--ink); }
+.head p { margin: 6px 0 0; font-size: 15px; color: var(--muted); }
+.headActions { display: flex; gap: 10px; flex-wrap: wrap; }
+
+.kpis { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 20px; }
+.kpi { padding: 22px 24px; display: flex; flex-direction: column; gap: 8px; min-width: 0; }
+.kpiK { display: flex; align-items: center; gap: 10px; font-size: 13px; font-weight: 700; color: var(--muted); }
+.kpiIco { width: 34px; height: 34px; border-radius: 10px; background: var(--icon-bg); color: var(--forest); display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+.kpiIco :global(.tt-ico) { width: 18px; height: 18px; }
+.kpiV { font-family: var(--font-display); font-size: 52px; line-height: .95; font-weight: 700; color: var(--ink); }
+.kpiOf { font-size: 28px; color: var(--muted-2); }
+.kpiS { font-size: 13px; color: var(--muted); }
+
+.grid { display: grid; grid-template-columns: minmax(0, 1.55fr) minmax(0, 1fr); gap: 20px; }
+.recent { padding: 22px 12px 8px; min-width: 0; }
+.cardHead { display: flex; justify-content: space-between; align-items: center; gap: 12px; padding: 0 12px 14px; }
+.link { font-size: 14px; font-weight: 700; }
+.muted { font-size: 13px; color: var(--muted); margin: 0; }
+
+.side { display: flex; flex-direction: column; gap: 20px; min-width: 0; }
+.bars { padding: 22px 24px; }
+.barList { display: flex; flex-direction: column; gap: 2px; }
+.barRow { display: grid; grid-template-columns: 150px minmax(0, 1fr) 30px; align-items: center; gap: 12px; height: 28px; position: relative; }
+.barName { font-size: 13.5px; font-weight: 600; color: var(--ink-2); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.barTrack { height: 14px; position: relative; }
+.bar { display: block; height: 14px; border-radius: 0 4px 4px 0; background: var(--forest); transition: background-color .15s; min-width: 4px; }
+.barRow:hover .bar { background: var(--amber); }
+.barV { font-size: 13.5px; font-weight: 700; color: var(--ink); text-align: right; }
+.tip {
+  position: absolute; left: 162px; top: -30px; z-index: 3;
+  padding: 6px 10px; border-radius: 8px; background: var(--ink); color: #fff;
+  font-size: 12px; font-weight: 600; white-space: nowrap;
+  opacity: 0; pointer-events: none; transition: opacity .15s;
+}
+.barRow:hover .tip { opacity: 1; }
+
+.upcoming { padding: 22px 24px; flex-grow: 1; }
+.upList { display: flex; flex-direction: column; gap: 12px; }
+.up { display: flex; align-items: center; gap: 14px; }
+.upDate {
+  width: 48px; height: 48px; border-radius: 14px; flex-shrink: 0;
+  background: var(--forest); color: var(--cream);
+  display: flex; flex-direction: column; align-items: center; justify-content: center;
+}
+.upDate span:first-child { font-size: 11px; font-weight: 700; text-transform: uppercase; color: var(--amber); }
+.upDate :global(.tt-d) { font-size: 24px; line-height: 1; font-weight: 700; }
+.upTxt { display: flex; flex-direction: column; gap: 2px; min-width: 0; }
+.upTxt strong { font-size: 15px; }
+.upTxt span { font-size: 13px; color: var(--muted); }
+
+@media (max-width: 1280px) {
+  .kpis { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .grid { grid-template-columns: minmax(0, 1fr); }
+}
+@media (max-width: 640px) {
+  .kpis { grid-template-columns: minmax(0, 1fr); }
+  .head h2 { font-size: 36px; }
+  .barRow { grid-template-columns: 110px minmax(0, 1fr) 26px; }
+}

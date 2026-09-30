@@ -1,0 +1,88 @@
+.section { padding-top: 88px; padding-bottom: 96px; background: var(--cream); }
+
+.story { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 80px; }
+
+.collage { position: relative; height: 520px; }
+.photoMain { position: absolute; left: 0; top: 0; width: 71.6%; height: 520px; border-radius: 32px; }
+.photoSmall {
+  position: absolute; left: 55%; top: 260px; width: 45%; height: 260px;
+  border-radius: 28px; border: 8px solid var(--cream);
+}
+.badge {
+  position: absolute; left: 73.3%; top: 60px;
+  width: 150px; height: 150px; border-radius: 50%;
+  background: var(--amber); color: var(--ink);
+  display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 4px;
+  text-align: center;
+}
+.badge :global(.tt-d) { font-size: 20px; font-weight: 700; line-height: 1; }
+
+.text { display: flex; flex-direction: column; gap: 22px; padding-top: 10px; }
+.title { margin: 0; font-size: clamp(64px, 7.2vw, 104px); line-height: .88; font-weight: 700; color: var(--forest); }
+.p { margin: 0; font-size: 17px; line-height: 1.65; color: var(--ink-2); }
+.mission {
+  margin-top: 8px; padding: 28px 30px; border-radius: 28px;
+  background: var(--forest); color: var(--cream);
+  display: flex; gap: 20px; align-items: flex-start;
+}
+.missionIco {
+  width: 52px; height: 52px; border-radius: 50%;
+  background: var(--amber); color: var(--ink);
+  display: flex; align-items: center; justify-content: center; flex-shrink: 0;
+}
+.missionText { display: flex; flex-direction: column; gap: 8px; }
+.missionText h3 { margin: 0; font-size: 28px; line-height: 1; font-weight: 700; color: var(--amber); }
+.missionText p { margin: 0; font-size: 16px; line-height: 1.6; color: rgba(246, 239, 227, .9); }
+
+.guidesHead { display: flex; justify-content: space-between; align-items: flex-end; gap: 32px; margin-top: 88px; }
+.guidesTitle { margin: 0; font-size: clamp(52px, 5vw, 72px); line-height: .9; font-weight: 700; color: var(--forest); }
+.guidesIntro { margin: 0 0 6px; max-width: 380px; font-size: 16px; line-height: 1.6; color: var(--muted); }
+.guides { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 24px; margin-top: 32px; }
+.guide { display: flex; flex-direction: column; gap: 14px; }
+.guidePhoto { height: 230px; border-radius: 24px; }
+.guideText { display: flex; flex-direction: column; gap: 4px; }
+.guideText h4 { margin: 0; font-size: 28px; line-height: 1; font-weight: 700; color: var(--ink); }
+.guideText span { font-size: 15px; color: var(--muted); }
+.tags { display: flex; flex-wrap: wrap; gap: 6px; }
+.tags span {
+  padding: 6px 10px; border-radius: 999px; background: var(--sand-3);
+  font-size: 12px; font-weight: 700; color: var(--ink-2);
+}
+
+@media (max-width: 1279px) {
+  .story { gap: 48px; }
+  .collage { height: 460px; }
+  .photoMain { height: 460px; }
+  .photoSmall { top: 230px; height: 230px; }
+  .badge { width: 132px; height: 132px; }
+}
+@media (max-width: 1023px) {
+  .story { grid-template-columns: minmax(0, 1fr); }
+  .collage { max-width: 600px; width: 100%; }
+  .guides { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .guidesHead { flex-direction: column; align-items: flex-start; gap: 12px; }
+}
+@media (max-width: 767px) {
+  .section { padding-top: 56px; padding-bottom: 56px; }
+  .story { gap: 32px; }
+  .collage { height: 360px; }
+  .photoMain { width: 78%; height: 300px; border-radius: 26px; }
+  .photoSmall { left: 42%; top: 180px; width: 58%; height: 180px; border-width: 6px; border-radius: 22px; }
+  .badge { left: auto; right: 0; top: 24px; width: 104px; height: 104px; }
+  .badge svg { width: 30px; height: 30px; }
+  .badge :global(.tt-d) { font-size: 15px; }
+  .text { gap: 16px; padding-top: 0; }
+  .title { font-size: 64px; }
+  .p { font-size: 15.5px; }
+  .mission { padding: 22px; gap: 16px; border-radius: 24px; }
+  .missionIco { width: 44px; height: 44px; }
+  .missionText h3 { font-size: 24px; }
+  .missionText p { font-size: 15px; }
+  .guidesHead { margin-top: 56px; }
+  .guidesTitle { font-size: 48px; }
+  .guidesIntro { font-size: 15px; }
+  .guides { gap: 16px 12px; margin-top: 24px; }
+  .guidePhoto { height: 180px; border-radius: 20px; }
+  .guideText h4 { font-size: 24px; }
+  .guideText span { font-size: 14px; }
+}

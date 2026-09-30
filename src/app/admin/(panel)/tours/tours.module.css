@@ -1,0 +1,38 @@
+.page { display: flex; flex-direction: column; gap: 20px; }
+.head { display: flex; justify-content: space-between; align-items: flex-end; gap: 16px; flex-wrap: wrap; }
+.head h2 { margin: 0; font-size: 44px; line-height: 1; font-weight: 700; color: var(--ink); }
+.head p { margin: 6px 0 0; font-size: 15px; color: var(--muted); }
+.add { height: 52px; padding: 0 26px; font-size: 16px; box-shadow: 0 10px 22px rgba(233, 162, 59, .35); }
+.add :global(.tt-ico) { stroke-width: 2.4; }
+
+.tools { display: flex; justify-content: space-between; align-items: center; gap: 12px; flex-wrap: wrap; }
+.search {
+  display: flex; align-items: center; gap: 10px; width: 320px; max-width: 100%; height: 46px; padding: 0 14px;
+  border-radius: 999px; border: 1.5px solid var(--line-2); background: #fff; color: var(--muted-2);
+}
+.search:focus-within { border-color: var(--forest); box-shadow: 0 0 0 3px rgba(31, 58, 46, .14); }
+.search input { flex-grow: 1; border: 0; outline: none; background: transparent; font-size: 14.5px; font-weight: 500; color: var(--ink); min-width: 0; }
+
+.card { padding: 18px 12px 6px; }
+.row { animation: rowIn .3s both; }
+@keyframes rowIn { from { opacity: 0; transform: translateY(6px); } to { opacity: 1; transform: none; } }
+.tourCell { display: flex; align-items: center; gap: 14px; }
+.thumb { width: 72px; height: 52px; border-radius: 12px; flex-shrink: 0; }
+.nameCol { display: flex; flex-direction: column; gap: 4px; }
+.name { font-family: var(--font-display); font-size: 21px; font-weight: 700; text-transform: uppercase; line-height: 1; color: var(--ink); text-decoration: none; }
+.name:hover { color: var(--forest-hover); }
+.cat { font-size: 13px; color: var(--muted); }
+.paused .thumb, .paused .name { opacity: .5; }
+.price { font-family: var(--font-display); font-size: 22px; font-weight: 700; }
+.mxn { font-size: 12px; color: var(--muted-2); }
+.diff { display: inline-flex; align-items: center; gap: 6px; white-space: nowrap; }
+.diff i { width: 8px; height: 8px; border-radius: 50%; background: var(--line-2); display: block; }
+.diff i.on { background: var(--terra-text); }
+.diff span { margin-left: 4px; }
+.actions { display: flex; justify-content: flex-end; gap: 6px; }
+.none { padding: 48px 16px; text-align: center; color: var(--muted); font-size: 15px; border-top: 1px solid #ede3d2; }
+.foot {
+  display: flex; justify-content: space-between; align-items: center; gap: 12px; flex-wrap: wrap;
+  padding: 14px 16px; border-top: 1px solid #ede3d2; font-size: 13px; color: var(--muted);
+}
+@media (prefers-reduced-motion: reduce) { .row { animation: none; } }
